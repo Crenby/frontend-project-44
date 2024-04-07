@@ -1,14 +1,10 @@
 import readlineSync from 'readline-sync';
 import nameQuestion from "../src/cli.js";
+import {randomInteger, congratulations} from "../src/index.js"
 
 function brainProgressionGames() {
     let name = nameQuestion();
     console.log("What number is missing in the progression?");
-
-    function randomInteger(min, max) {
-        let rand = min + Math.random() * (max + 1 - min);
-        return Math.floor(rand);
-    }
 
     function createProgression() {
         let stepProgression = randomInteger(2, 5);
@@ -55,9 +51,7 @@ function brainProgressionGames() {
         }
     }
 
-    if(score === 0) {
-        console.log(`Congratulations, ${name}!`);
-    }
+    congratulations(score, name);
 }
 
 export default brainProgressionGames;

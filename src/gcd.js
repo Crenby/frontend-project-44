@@ -1,14 +1,10 @@
 import readlineSync from 'readline-sync';
 import nameQuestion from "../src/cli.js";
+import {randomInteger, congratulations} from "../src/index.js"
 
 function brainGcdGames() {
     let name = nameQuestion();
     console.log("Find the greatest common divisor of given numbers.");
-
-    function randomInteger(min, max) {
-        let rand = min + Math.random() * (max + 1 - min);
-        return Math.floor(rand);
-    }
 
     function Gcd() {
         let x = arguments[0];
@@ -50,9 +46,7 @@ function brainGcdGames() {
         }
     }
 
-    if(score === 0) {
-        console.log(`Congratulations, ${name}!`);
-    }
+    congratulations(score, name);
 }
 
 export default brainGcdGames;

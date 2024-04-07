@@ -1,14 +1,10 @@
 import readlineSync from 'readline-sync';
 import nameQuestion from "../src/cli.js";
+import {randomInteger, congratulations} from "../src/index.js"
 
 function brainPrimeGames() {
     let name = nameQuestion();
     console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
-
-    function randomInteger(min, max) {
-        let rand = min + Math.random() * (max + 1 - min);
-        return Math.floor(rand);
-    }
 
     function isPrime(num) {
         for (let i = 2; i < num; i++) {
@@ -38,9 +34,7 @@ function brainPrimeGames() {
         }
     }
 
-    if(score === 0) {
-        console.log(`Congratulations, ${name}!`);
-    }
+    congratulations(score, name);
 }
 
 export default brainPrimeGames;

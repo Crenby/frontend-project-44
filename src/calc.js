@@ -1,13 +1,9 @@
 import readlineSync from 'readline-sync';
 import nameQuestion from "../src/cli.js";
+import {randomInteger, congratulations} from "../src/index.js"
 
 function brainCalcGames() {
     let name = nameQuestion();
-
-    function randomInteger(min, max) {
-        let rand = min + Math.random() * (max + 1 - min);
-        return Math.floor(rand);
-    }
 
     function randomOperation() {
         let rand = 1 + Math.random() * 3;
@@ -46,9 +42,7 @@ function brainCalcGames() {
         }
     }
 
-    if(score === 0) {
-        console.log(`Congratulations, ${name}!`)
-    }
+    congratulations(score, name);
 }
 
 export default brainCalcGames;

@@ -1,15 +1,11 @@
 import readlineSync from 'readline-sync';
 import nameQuestion from "../src/cli.js";
+import {randomInteger, congratulations} from "../src/index.js"
 
 function brainEvenGames() {
     let name = nameQuestion();
 
     console.log('Answer "yes" if the number is even, otherwise answer "no".');
-
-    function randomInteger(min, max) {
-        let rand = min + Math.random() * (max + 1 - min);
-        return Math.floor(rand);
-    }
 
     let score = 0;
 
@@ -41,9 +37,7 @@ function brainEvenGames() {
         }
     }
 
-    if(score === 0) {
-        console.log(`Congratulations, ${name}!`);
-    }
+    congratulations(score, name);
 }
 
 export default brainEvenGames;
