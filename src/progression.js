@@ -21,11 +21,7 @@ function brainProgressionGames() {
 
         arr[posHiddenElement - 1] = "..";
 
-        let strProgression = arr[0];
-
-        for(let i = 1; i < arr.length; i++) {
-            strProgression += ` ${arr[i]}`;
-        }
+        let strProgression = arr.join(" ");
 
         return [strProgression, answer];        
     }
@@ -33,9 +29,7 @@ function brainProgressionGames() {
     let score = 0;
 
     for(let i = 0; i < 3; i++) {
-        if(score < 0) {
-            break;
-        }
+        if(score < 0) break;
 
         let question = createProgression();
 

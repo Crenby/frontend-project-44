@@ -16,9 +16,7 @@ function brainPrimeGames() {
     let score = 0;
 
     for (let i = 0; i < 3; i++) {
-        if(score < 0) {
-            break;
-        }
+        if(score < 0) break;
 
         let question = randomInteger(1, 500);
 

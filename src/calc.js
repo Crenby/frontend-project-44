@@ -22,9 +22,7 @@ function brainCalcGames() {
     let score = 0;
 
     for (let i = 0; i < 3; i++) {
-        if(score < 0) {
-            break;
-        }
+        if(score < 0) break;
 
         console.log("What is the result of the expression?");
 

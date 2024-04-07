@@ -1,6 +1,6 @@
 import readlineSync from 'readline-sync';
 import nameQuestion from "../src/cli.js";
-import {randomInteger, congratulations} from "../src/index.js"
+import {randomInteger, congratulations, isEven} from "../src/index.js"
 
 function brainEvenGames() {
     let name = nameQuestion();
@@ -10,9 +10,7 @@ function brainEvenGames() {
     let score = 0;
 
     for(let i = 0; i < 3; i++) {
-        if(score < 0) {
-            break;
-        }
+        if(score < 0) break;
 
         let question = randomInteger(1, 100);
 
@@ -20,20 +18,11 @@ function brainEvenGames() {
 
         const answer = readlineSync.question('Your answer: ');
 
-        if(question % 2 === 0) {
-            if(answer === "yes") {
-                console.log("Correct!");
-            } else {
-                console.log(`'${answer}' is wrong answer ;(. Correct answer was 'yes'. \nLet's try again, ${name}!`);
-                score--;
-            }
+        if(answer === isEven(question)) {
+            console.log("Correct!");
         } else {
-            if(answer === "no") {
-                console.log("Correct!");
-            } else {
-                console.log(`'${answer}' is wrong answer ;(. Correct answer was 'no'. \nLet's try again, ${name}!`);
-                score--;
-            }
+            console.log(`'${answer}' is wrong answer ;(. Correct answer was '${isEven(question)}'. \nLet's try again, ${name}!`);
+            score--;
         }
     }
 
