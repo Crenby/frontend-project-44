@@ -13,7 +13,7 @@ function brainProgressionGames() {
 
     const arr = [];
 
-    for (let i = 1; i <= progressionLength; i++) {
+    for (let i = 1; i <= progressionLength; i += 1) {
       arr[i - 1] = stepProgression * i;
     }
 
@@ -28,7 +28,7 @@ function brainProgressionGames() {
 
   let score = 0;
 
-  for (let i = 0; i < 3; i++) {
+  for (let i = 0; i < 3; i += 1) {
     if (score < 0) break;
 
     const question = createProgression();
@@ -41,7 +41,7 @@ function brainProgressionGames() {
       console.log('Correct!');
     } else {
       console.log(`'${answer}' is wrong answer ;(. Correct answer was '${question[1]}'. \nLet's try again, ${name}!`);
-      score--;
+      score -= 1;
     }
   }
 

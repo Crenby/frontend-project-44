@@ -20,7 +20,7 @@ function brainCalcGames() {
 
   let score = 0;
 
-  for (let i = 0; i < 3; i++) {
+  for (let i = 0; i < 3; i += 1) {
     if (score < 0) break;
 
     console.log('What is the result of the expression?');
@@ -35,7 +35,7 @@ function brainCalcGames() {
       console.log('Correct!');
     } else {
       console.log(`'${answer}' is wrong answer ;(. Correct answer was '${question[0]}'. \nLet's try again, ${name}!`);
-      score--;
+      score -= 1;
     }
   }
 

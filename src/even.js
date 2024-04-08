@@ -9,7 +9,7 @@ function brainEvenGames() {
 
   let score = 0;
 
-  for (let i = 0; i < 3; i++) {
+  for (let i = 0; i < 3; i += 1) {
     if (score < 0) break;
 
     const question = randomInteger(1, 100);
@@ -22,7 +22,7 @@ function brainEvenGames() {
       console.log('Correct!');
     } else {
       console.log(`'${answer}' is wrong answer ;(. Correct answer was '${isEven(question)}'. \nLet's try again, ${name}!`);
-      score--;
+      score -= 1;
     }
   }
 

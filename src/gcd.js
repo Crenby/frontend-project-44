@@ -14,7 +14,7 @@ function brainGcdGames() {
 
   let score = 0;
 
-  for (let i = 0; i < 3; i++) {
+  for (let i = 0; i < 3; i += 1) {
     if (score < 0) break;
 
     const question = createGcd();
@@ -27,7 +27,7 @@ function brainGcdGames() {
       console.log('Correct!');
     } else {
       console.log(`'${answer}' is wrong answer ;(. Correct answer was '${question[1]}'. \nLet's try again, ${name}!`);
-      score--;
+      score -= 1;
     }
   }
 

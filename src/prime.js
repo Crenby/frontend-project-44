@@ -7,7 +7,7 @@ function brainPrimeGames() {
   console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
 
   function isPrime(num) {
-    for (let i = 2; i < num; i++) {
+    for (let i = 2; i < num; i += 1) {
       if (num % i === 0) return 'no';
     }
     return 'yes';
@@ -15,7 +15,7 @@ function brainPrimeGames() {
 
   let score = 0;
 
-  for (let i = 0; i < 3; i++) {
+  for (let i = 0; i < 3; i += 1) {
     if (score < 0) break;
 
     const question = randomInteger(1, 500);
@@ -28,7 +28,7 @@ function brainPrimeGames() {
       console.log('Correct!');
     } else {
       console.log(`'${answer}' is wrong answer ;(. Correct answer was '${isPrime(question)}'. \nLet's try again, ${name}!`);
-      score--;
+      score -= 1;
     }
   }
   congratulations(score, name);
