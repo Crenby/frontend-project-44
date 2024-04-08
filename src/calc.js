@@ -1,22 +1,21 @@
 import readlineSync from 'readline-sync';
-import nameQuestion from '../src/cli.js';
-import { randomInteger, congratulations } from '../src/index.js';
+import nameQuestion from './cli.js';
+import { randomInteger, congratulations } from './index.js';
 
 function brainCalcGames() {
-  let name = nameQuestion();
+  const name = nameQuestion();
 
   function randomOperation() {
-    let rand = 1 + Math.random() * 3;
-    let oneNum = randomInteger(1, 20);
-    let twoNum = randomInteger(1, 20);
+    const rand = 1 + Math.random() * 3;
+    const oneNum = randomInteger(1, 20);
+    const twoNum = randomInteger(1, 20);
 
     if (Math.floor(rand) === 1) {
       return [`${oneNum + twoNum}`, `${oneNum} + ${twoNum}`];
-    } else if (Math.floor(rand) === 2) {
+    } if (Math.floor(rand) === 2) {
       return [`${oneNum - twoNum}`, `${oneNum} - ${twoNum}`];
-    } else {
-      return [`${oneNum * twoNum}`, `${oneNum} * ${twoNum}`];
     }
+    return [`${oneNum * twoNum}`, `${oneNum} * ${twoNum}`];
   }
 
   let score = 0;
@@ -24,16 +23,16 @@ function brainCalcGames() {
   for (let i = 0; i < 3; i++) {
     if (score < 0) break;
 
-    console.log("What is the result of the expression?");
+    console.log('What is the result of the expression?');
 
-    let question = randomOperation();
+    const question = randomOperation();
 
-    console.log("Question: " + question[1]);
+    console.log(`Question: ${question[1]}`);
 
     const answer = readlineSync.question('Your answer: ');
 
     if (answer === question[0]) {
-      console.log("Correct!");
+      console.log('Correct!');
     } else {
       console.log(`'${answer}' is wrong answer ;(. Correct answer was '${question[0]}'. \nLet's try again, ${name}!`);
       score--;

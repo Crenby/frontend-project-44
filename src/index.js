@@ -1,28 +1,31 @@
 function randomInteger(min, max) {
-  let rand = min + Math.random() * (max + 1 - min);
+  const rand = min + Math.random() * (max + 1 - min);
   return Math.floor(rand);
 }
 
 function congratulations(score, name) {
-  if(score === 0) {
+  if (score === 0) {
     console.log(`Congratulations, ${name}!`);
   }
 }
 
 function isEven(num) {
-  return num % 2 ? "no" : "yes";
+  return num % 2 ? 'no' : 'yes';
 }
 
-function isGcd() {
-  let x = arguments[0];
-  for (let i = 1; i < arguments.length; i++) {
-    let y = arguments[i];
-    while (x && y) {
-      x > y ? x %= y : y %= x;
+function isGcd(numOne, numTwo) {
+  let a = numOne;
+  let b = numTwo;
+  while (a !== 0 && b !== 0) {
+    if (a > b) {
+      a %= b;
+    } else {
+      b %= a;
     }
-    x += y;
   }
-  return x;
+  return a + b;
 }
 
-export {randomInteger, congratulations, isEven, isGcd};
+export {
+  randomInteger, congratulations, isEven, isGcd,
+};
