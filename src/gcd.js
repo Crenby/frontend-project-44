@@ -1,37 +1,28 @@
-import readlineSync from 'readline-sync';
-import nameQuestion from './cli.js';
-import { randomInteger, congratulations, isGcd } from './index.js';
+import { randomInteger, playGames } from './index.js';
 
 function brainGcdGames() {
-  const name = nameQuestion();
-  console.log('Find the greatest common divisor of given numbers.');
+  function isGcd(numOne, numTwo) {
+    let a = numOne;
+    let b = numTwo;
+    while (a !== 0 && b !== 0) {
+      if (a > b) {
+        a %= b;
+      } else {
+        b %= a;
+      }
+    }
+    return `${a + b}`;
+  }
 
   function createGcd() {
     const a = randomInteger(1, 50);
     const b = randomInteger(1, 50);
-    return [`${a} ${b}`, isGcd(a, b)];
+    return [isGcd(a, b), `${a} ${b}`];
   }
 
-  let score = 0;
+  const description = 'Find the greatest common divisor of given numbers.';
 
-  for (let i = 0; i < 3; i += 1) {
-    if (score < 0) break;
-
-    const question = createGcd();
-
-    console.log(`Question: ${question[0]}`);
-
-    const answer = readlineSync.question('Your answer: ');
-
-    if (+answer === question[1]) {
-      console.log('Correct!');
-    } else {
-      console.log(`'${answer}' is wrong answer ;(. Correct answer was '${question[1]}'. \nLet's try again, ${name}!`);
-      score -= 1;
-    }
-  }
-
-  congratulations(score, name);
+  playGames(description, createGcd);
 }
 
 export default brainGcdGames;

@@ -1,9 +1,7 @@
-import readlineSync from 'readline-sync';
-import nameQuestion from './cli.js';
-import { randomInteger, congratulations } from './index.js';
+import { randomInteger, playGames } from './index.js';
 
 function brainCalcGames() {
-  const name = nameQuestion();
+  const description = 'What is the result of the expression?';
 
   function randomOperation() {
     const rand = 1 + Math.random() * 3;
@@ -18,28 +16,7 @@ function brainCalcGames() {
     return [`${oneNum * twoNum}`, `${oneNum} * ${twoNum}`];
   }
 
-  let score = 0;
-
-  for (let i = 0; i < 3; i += 1) {
-    if (score < 0) break;
-
-    console.log('What is the result of the expression?');
-
-    const question = randomOperation();
-
-    console.log(`Question: ${question[1]}`);
-
-    const answer = readlineSync.question('Your answer: ');
-
-    if (answer === question[0]) {
-      console.log('Correct!');
-    } else {
-      console.log(`'${answer}' is wrong answer ;(. Correct answer was '${question[0]}'. \nLet's try again, ${name}!`);
-      score -= 1;
-    }
-  }
-
-  congratulations(score, name);
+  playGames(description, randomOperation);
 }
 
 export default brainCalcGames;
