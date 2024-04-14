@@ -13,10 +13,7 @@ function playGames(description, getAnswerAndQuestion) {
   console.log(`Hello, ${name}!`);
   console.log(description);
 
-  let score = 0;
-
   for (let i = 0; i < countRound; i += 1) {
-    if (score < 0) break;
     const [correctAnswer, question] = getAnswerAndQuestion();
 
     console.log(`Question: ${question}`);
@@ -26,14 +23,11 @@ function playGames(description, getAnswerAndQuestion) {
     if (answer === correctAnswer) {
       console.log('Correct!');
     } else {
-      console.log(`'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'. \nLet's try again, ${name}!`);
-      score -= 1;
+      return console.log(`'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'. \nLet's try again, ${name}!`);
     }
   }
 
-  if (score === 0) {
-    console.log(`Congratulations, ${name}!`);
-  }
+  console.log(`Congratulations, ${name}!`);
 }
 
 export {
