@@ -15,7 +15,6 @@ function brainGcdGames() {
     }
     return `${a + b}`;
   }
-  
   const a = randomInteger(1, 50);
   const b = randomInteger(1, 50);
   return [isGcd(a, b), `${a} ${b}`];

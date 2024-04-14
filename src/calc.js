@@ -16,4 +16,3 @@ function brainCalcGames() {
 }
 
 export default () => playGames(description, brainCalcGames);
-
