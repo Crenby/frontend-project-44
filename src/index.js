@@ -23,7 +23,8 @@ function playGames(description, getAnswerAndQuestion) {
     if (answer === correctAnswer) {
       console.log('Correct!');
     } else {
-      return console.log(`'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'. \nLet's try again, ${name}!`);
+      console.log(`'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'. \nLet's try again, ${name}!`);
+      return false;
     }
   }
 
