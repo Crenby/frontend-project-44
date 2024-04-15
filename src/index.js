@@ -29,6 +29,7 @@ function playGames(description, getAnswerAndQuestion) {
   }
 
   console.log(`Congratulations, ${name}!`);
+  return true;
 }
 
 export {
